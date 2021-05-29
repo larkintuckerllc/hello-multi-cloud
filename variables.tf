@@ -18,12 +18,20 @@ variable aws_public_subnet {
   type = map
 }
 
+variable aws_region {
+  type = string
+}
+
 variable aws_vpc_cidr_block {
   type = string
 }
 
 variable gcp_asn {
   type = number
+}
+
+variable gcp_project {
+  type = string
 }
 
 variable gcp_region {
