@@ -15,12 +15,15 @@ provider "google" {
   project = "training-main-310016"
 }
 
-/*
 module "aws_vpc" {
-  source     = "./modules/aws_vpc"
-  identifier = var.identifier
+  source         = "./modules/aws_vpc"
+  private_subnet = var.aws_private_subnet
+  public_subnet  = var.aws_public_subnet
+  identifier     = var.identifier
+  vpc_cidr_block = var.aws_vpc_cidr_block
 }
 
+/*
 module "aws_bastion" {
   source     = "./modules/aws_bastion"
   identifier = var.identifier
