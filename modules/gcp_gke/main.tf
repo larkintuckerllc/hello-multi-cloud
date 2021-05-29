@@ -1,14 +1,10 @@
-locals {
-  zone = "us-central1-a"
-}
-
 resource "google_container_cluster" "this" {
   initial_node_count = 1
   ip_allocation_policy {
     cluster_secondary_range_name  = "pods"
     services_secondary_range_name = "services"
   }
-  location                 = local.zone
+  location                 = var.zone
   name                     = var.identifier
   network                  = var.network_name
   remove_default_node_pool = true
@@ -20,7 +16,7 @@ resource "google_container_cluster" "this" {
 
 resource "google_container_node_pool" "this" {
   cluster    = google_container_cluster.this.name
-  location   = local.zone
+  location   = var.zone
   name       = var.identifier
   node_count = 3
 }

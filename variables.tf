@@ -18,8 +18,16 @@ variable aws_vpc_cidr_block {
   type = string
 }
 
+variable gcp_region {
+  type = string
+}
+
 variable gcp_subnet {
   type = map
+}
+
+variable gcp_zone {
+  type = string
 }
 
 variable identifier {

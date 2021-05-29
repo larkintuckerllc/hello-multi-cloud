@@ -82,7 +82,7 @@ resource "google_compute_router_interface" "conn0_tunnel1" {
 resource "google_compute_router_peer" "conn0_tunnel1" {
   interface       = google_compute_router_interface.conn0_tunnel1.name
   name            = "${var.identifier}-conn0-tunnel1"
-  peer_asn        = var.asn
+  peer_asn        = var.aws_asn
   peer_ip_address = var.conn0_tunnel1_vgw_ip
   region          = local.region
   router          = var.router_name
@@ -99,7 +99,7 @@ resource "google_compute_router_interface" "conn0_tunnel2" {
 resource "google_compute_router_peer" "conn0_tunnel2" {
   interface       = google_compute_router_interface.conn0_tunnel2.name
   name            = "${var.identifier}-conn0-tunnel2"
-  peer_asn        = var.asn
+  peer_asn        = var.aws_asn
   peer_ip_address = var.conn0_tunnel2_vgw_ip
   region          = local.region
   router          = var.router_name
@@ -116,7 +116,7 @@ resource "google_compute_router_interface" "conn1_tunnel1" {
 resource "google_compute_router_peer" "conn1_tunnel1" {
   interface       = google_compute_router_interface.conn1_tunnel1.name
   name            = "${var.identifier}-conn1-tunnel1"
-  peer_asn        = var.asn
+  peer_asn        = var.aws_asn
   peer_ip_address = var.conn1_tunnel1_vgw_ip
   region          = local.region
   router          = var.router_name
@@ -133,7 +133,7 @@ resource "google_compute_router_interface" "conn1_tunnel2" {
 resource "google_compute_router_peer" "conn1_tunnel2" {
   interface       = google_compute_router_interface.conn1_tunnel2.name
   name            = "${var.identifier}-conn1-tunnel2"
-  peer_asn        = var.asn
+  peer_asn        = var.aws_asn
   peer_ip_address = var.conn1_tunnel2_vgw_ip
   region          = local.region
   router          = var.router_name

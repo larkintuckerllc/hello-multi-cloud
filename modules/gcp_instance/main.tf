@@ -1,7 +1,3 @@
-locals {
-  zone = "us-central1-a"
-}
-
 resource "google_compute_instance" "this" {
   boot_disk {
     initialize_params {
@@ -14,5 +10,5 @@ resource "google_compute_instance" "this" {
     network    = var.network_name
     subnetwork = var.subnet_name
   }
-  zone = local.zone
+  zone = var.zone
 }

@@ -1,7 +1,3 @@
-locals {
-  zone = "us-central1-a"
-}
-
 resource "google_compute_firewall" "allow-ssh-target-bastion" {
   allow {
     ports = [
@@ -50,5 +46,5 @@ resource "google_compute_instance" "this" {
   tags = [
     "bastion"
   ]
-  zone = local.zone
+  zone = var.zone
 }

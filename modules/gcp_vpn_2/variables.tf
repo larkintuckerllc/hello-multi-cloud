@@ -1,4 +1,4 @@
-variable asn {
+variable aws_asn {
   type = string
 }
 

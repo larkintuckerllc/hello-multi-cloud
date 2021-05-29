@@ -9,3 +9,7 @@ variable network_name {
 variable subnet_name {
   type = string
 }
+
+variable zone {
+  type = string
+}

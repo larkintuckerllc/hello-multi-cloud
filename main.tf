@@ -23,7 +23,6 @@ module "aws_vpc" {
   vpc_cidr_block = var.aws_vpc_cidr_block
 }
 
-/*
 module "aws_bastion" {
   source     = "./modules/aws_bastion"
   identifier = var.identifier
@@ -50,7 +49,6 @@ module "aws_eks" {
   subnet_ids                = module.aws_vpc.subnet_ids
   vpc_id                    = module.aws_vpc.vpc_id
 }
-*/
 
 module "gcp_vpc" {
   source     = "./modules/gcp_vpc"
@@ -63,6 +61,7 @@ module "gcp_bastion" {
   identifier   = var.identifier
   network_name = module.gcp_vpc.network_name
   subnet_name  = module.gcp_vpc.subnet_names[0]
+  zone         = var.gcp_zone
 }
 
 module "gcp_instance" {
@@ -70,6 +69,7 @@ module "gcp_instance" {
   identifier   = var.identifier
   network_name = module.gcp_vpc.network_name
   subnet_name  = module.gcp_vpc.subnet_names[0]
+  zone         = var.gcp_zone
 }
 
 module "gcp_gke" {
@@ -77,13 +77,14 @@ module "gcp_gke" {
   identifier  = var.identifier
   network_name = module.gcp_vpc.network_name
   subnet_name  = module.gcp_vpc.subnet_names[0]
+  zone         = var.gcp_zone
 }
 
-/*
 module "gcp_vpn" {
   source     = "./modules/gcp_vpn"
   identifier = var.identifier
   network_id = module.gcp_vpc.network_id
+  region     = var.gcp_region
 }
 
 module "aws_vpn" {
@@ -100,7 +101,7 @@ module "aws_vpn" {
 
 module "gcp_vpn_2" {
   source                = "./modules/gcp_vpn_2"
-  asn                   = module.aws_vpn.asn
+  aws_asn               = var.aws_asn
   # CONN0_TUNNEL1
   conn0_tunnel1_address = module.aws_vpn.conn0_tunnel1_address
   conn0_tunnel1_cgw_ip  = module.aws_vpn.conn0_tunnel1_cgw_ip
@@ -127,4 +128,3 @@ module "gcp_vpn_2" {
   router_name           = module.gcp_vpn.router_name
   vpn_gateway_id        = module.gcp_vpn.vpn_gateway_id
 }
-*/
