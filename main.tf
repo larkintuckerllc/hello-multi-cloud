@@ -55,6 +55,7 @@ module "aws_eks" {
 module "gcp_vpc" {
   source     = "./modules/gcp_vpc"
   identifier = var.identifier
+  subnet     = var.gcp_subnet
 }
 
 module "gcp_bastion" {
@@ -87,6 +88,7 @@ module "gcp_vpn" {
 
 module "aws_vpn" {
   source                 = "./modules/aws_vpn"
+  aws_asn                = var.aws_asn
   asn                    = module.gcp_vpn.asn
   identifier             = var.identifier
   ip_address_0           = module.gcp_vpn.ip_addresses[0]

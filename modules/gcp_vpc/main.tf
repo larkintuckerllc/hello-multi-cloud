@@ -1,12 +1,4 @@
 locals {
-  subnet = {
-    0 = {
-      ip_cidr_range          = "10.10.0.0/24"
-      ip_cidr_range_pods     = "10.10.64.0/18"
-      ip_cidr_range_services = "172.17.0.0/24"
-      region                 = "us-central1"
-    }
-  }
   subnet_names = [for subnet in values(google_compute_subnetwork.this) : subnet.name]
 }
 
@@ -20,7 +12,7 @@ resource "google_compute_network" "this" {
 # SUBNETS
 
 resource "google_compute_subnetwork" "this" {
-  for_each      = local.subnet
+  for_each      = var.subnet
   ip_cidr_range = each.value["ip_cidr_range"]
   name          = "${var.identifier}-${each.value["region"]}"
   network       = google_compute_network.this.id
@@ -38,14 +30,14 @@ resource "google_compute_subnetwork" "this" {
 # GATEWAYS
 
 resource "google_compute_router" "this" {
-  for_each = local.subnet
+  for_each = var.subnet
   name     = "${var.identifier}-${each.value["region"]}"
   network  = google_compute_network.this.id
   region   = each.value["region"]
 }
 
 resource "google_compute_router_nat" "this" {
-  for_each                           = local.subnet
+  for_each                           = var.subnet
   name                               = "${var.identifier}-${each.value["region"]}"
   nat_ip_allocate_option             = "AUTO_ONLY"
   router                             = google_compute_router.this[each.key].name

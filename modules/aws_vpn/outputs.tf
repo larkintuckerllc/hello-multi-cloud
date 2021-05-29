@@ -1,7 +1,3 @@
-output asn {
-  value = local.asn
-}
-
 # CONN0_TUNNEL1
 
 output conn0_tunnel1_address {

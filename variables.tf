@@ -1,3 +1,7 @@
+variable aws_asn {
+  type = number
+}
+
 variable aws_key_name {
   type = string
 }
@@ -12,6 +16,10 @@ variable aws_public_subnet {
 
 variable aws_vpc_cidr_block {
   type = string
+}
+
+variable gcp_subnet {
+  type = map
 }
 
 variable identifier {

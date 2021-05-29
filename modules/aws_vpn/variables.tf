@@ -2,6 +2,10 @@ variable asn {
   type = string
 }
 
+variable aws_asn {
+  type = number
+}
+
 variable identifier {
   type = string
 }

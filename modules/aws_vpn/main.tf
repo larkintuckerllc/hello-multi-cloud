@@ -1,7 +1,3 @@
-locals {
-  asn = 64512
-}
-
 resource "aws_customer_gateway" "gw0" {
   bgp_asn    = var.asn
   ip_address = var.ip_address_0
@@ -23,7 +19,7 @@ resource "aws_customer_gateway" "gw1" {
 }
 
 resource "aws_vpn_gateway" "this" {
-  amazon_side_asn = local.asn
+  amazon_side_asn = var.aws_asn
   tags = {
     Infrastructure = var.identifier
     Name           = "${var.identifier}"
