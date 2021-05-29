@@ -46,6 +46,7 @@ module "aws_eks" {
   identifier                = var.identifier
   key_name                  = var.aws_key_name
   private_subnet_ids        = module.aws_vpc.private_subnet_ids
+  services                  = var.aws_eks_services
   subnet_ids                = module.aws_vpc.subnet_ids
   vpc_id                    = module.aws_vpc.vpc_id
 }

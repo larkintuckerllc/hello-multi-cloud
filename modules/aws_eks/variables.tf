@@ -14,6 +14,10 @@ variable private_subnet_ids {
   type = list
 }
 
+variable services {
+  type = string
+}
+
 variable subnet_ids {
   type = list
 }

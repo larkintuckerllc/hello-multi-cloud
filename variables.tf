@@ -2,6 +2,10 @@ variable aws_asn {
   type = number
 }
 
+variable aws_eks_services {
+  type = string
+}
+
 variable aws_key_name {
   type = string
 }
