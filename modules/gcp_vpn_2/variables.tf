@@ -80,6 +80,10 @@ variable identifier {
   type = string
 }
 
+variable region {
+  type = string
+}
+
 variable router_id {
   type = string
 }

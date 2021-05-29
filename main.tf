@@ -82,6 +82,7 @@ module "gcp_gke" {
 
 module "gcp_vpn" {
   source     = "./modules/gcp_vpn"
+  gcp_asn    = var.gcp_asn
   identifier = var.identifier
   network_id = module.gcp_vpc.network_id
   region     = var.gcp_region
@@ -90,7 +91,7 @@ module "gcp_vpn" {
 module "aws_vpn" {
   source                 = "./modules/aws_vpn"
   aws_asn                = var.aws_asn
-  asn                    = module.gcp_vpn.asn
+  gcp_asn                = var.gcp_asn
   identifier             = var.identifier
   ip_address_0           = module.gcp_vpn.ip_addresses[0]
   ip_address_1           = module.gcp_vpn.ip_addresses[1]
@@ -124,6 +125,7 @@ module "gcp_vpn_2" {
   conn1_tunnel2_vgw_ip  = module.aws_vpn.conn1_tunnel2_vgw_ip
   # END TUNNELS
   identifier            = var.identifier
+  region                = var.gcp_region
   router_id             = module.gcp_vpn.router_id
   router_name           = module.gcp_vpn.router_name
   vpn_gateway_id        = module.gcp_vpn.vpn_gateway_id

@@ -1,6 +1,3 @@
-output asn {
-  value = local.asn
-}
 output ip_addresses {
   value = local.ip_addresses
 }

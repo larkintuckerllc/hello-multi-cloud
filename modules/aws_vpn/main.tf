@@ -1,5 +1,5 @@
 resource "aws_customer_gateway" "gw0" {
-  bgp_asn    = var.asn
+  bgp_asn    = var.gcp_asn
   ip_address = var.ip_address_0
   tags = {
     Infrastructure = var.identifier
@@ -9,7 +9,7 @@ resource "aws_customer_gateway" "gw0" {
 }
 
 resource "aws_customer_gateway" "gw1" {
-  bgp_asn    = var.asn
+  bgp_asn    = var.gcp_asn
   ip_address = var.ip_address_1
   tags = {
     Infrastructure = var.identifier

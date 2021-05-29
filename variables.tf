@@ -18,6 +18,10 @@ variable aws_vpc_cidr_block {
   type = string
 }
 
+variable gcp_asn {
+  type = number
+}
+
 variable gcp_region {
   type = string
 }

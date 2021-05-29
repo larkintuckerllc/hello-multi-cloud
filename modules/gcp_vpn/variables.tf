@@ -1,3 +1,7 @@
+variable gcp_asn {
+  type = number
+}
+
 variable identifier {
   type = string
 }

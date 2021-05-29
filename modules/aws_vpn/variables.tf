@@ -1,8 +1,8 @@
-variable asn {
-  type = string
+variable aws_asn {
+  type = number
 }
 
-variable aws_asn {
+variable gcp_asn {
   type = number
 }
 
