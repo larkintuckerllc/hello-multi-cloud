@@ -74,11 +74,11 @@ module "gcp_instance" {
 }
 
 module "gcp_gke" {
-  source      = "./modules/gcp_gke"
-  identifier  = var.identifier
+  source       = "./modules/gcp_gke"
+  identifier   = var.identifier
   network_name = module.gcp_vpc.network_name
+  region       = var.gcp_region
   subnet_name  = module.gcp_vpc.subnet_names[0]
-  zone         = var.gcp_zone
 }
 
 module "gcp_vpn" {

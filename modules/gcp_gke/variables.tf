@@ -6,10 +6,10 @@ variable network_name {
   type = string
 }
 
-variable subnet_name {
+variable region {
   type = string
 }
 
-variable zone {
+variable subnet_name {
   type = string
 }

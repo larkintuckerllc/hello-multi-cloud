@@ -4,7 +4,7 @@ resource "google_container_cluster" "this" {
     cluster_secondary_range_name  = "pods"
     services_secondary_range_name = "services"
   }
-  location                 = var.zone
+  location                 = var.region
   name                     = var.identifier
   network                  = var.network_name
   remove_default_node_pool = true
@@ -16,7 +16,7 @@ resource "google_container_cluster" "this" {
 
 resource "google_container_node_pool" "this" {
   cluster    = google_container_cluster.this.name
-  location   = var.zone
+  location   = var.region
   name       = var.identifier
   node_count = 3
 }
