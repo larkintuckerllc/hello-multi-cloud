@@ -18,5 +18,5 @@ resource "google_container_node_pool" "this" {
   cluster    = google_container_cluster.this.name
   location   = var.region
   name       = var.identifier
-  node_count = 3
+  node_count = 2
 }
