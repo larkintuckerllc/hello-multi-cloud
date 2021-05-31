@@ -23,9 +23,12 @@ aws_public_subnet = {
 }
 aws_region         = "us-east-2"
 aws_vpc_cidr_block = "10.0.0.0/16"
-gcp_asn            = 64513
-gcp_project        = "REPLACE"
-gcp_region         = "us-central1"
+aws_region                 = "us-east-2"
+aws_vpc_cidr_block         = "10.0.0.0/16"
+gcp_asn                    = 64513
+gcp_master_ipv4_cidr_block = "192.168.0.0/28"
+gcp_project                = "training-main-310016"
+gcp_region                 = "us-central1"
 gcp_subnet = {
   0 = {
     ip_cidr_range          = "10.1.0.0/24"

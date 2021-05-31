@@ -30,6 +30,10 @@ variable gcp_asn {
   type = number
 }
 
+variable gcp_master_ipv4_cidr_block {
+  type = string
+}
+
 variable gcp_project {
   type = string
 }

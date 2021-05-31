@@ -4,9 +4,14 @@ resource "google_container_cluster" "this" {
     cluster_secondary_range_name  = "pods"
     services_secondary_range_name = "services"
   }
-  location                 = var.region
-  name                     = var.identifier
-  network                  = var.network_name
+  location = var.region
+  name     = var.identifier
+  network  = var.network_name
+  private_cluster_config {
+    enable_private_endpoint = false
+    enable_private_nodes    = true
+    master_ipv4_cidr_block  = var.master_ipv4_cidr_block
+  }
   remove_default_node_pool = true
   resource_labels = {
     infrastructure = var.identifier
