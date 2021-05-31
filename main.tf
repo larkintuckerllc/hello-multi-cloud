@@ -56,13 +56,11 @@ module "aws_eks" {
   vpc_id                    = module.aws_vpc.vpc_id
 }
 
-/*
 module "gcp_vpc" {
   source     = "./modules/gcp_vpc"
   identifier = var.identifier
   subnet     = var.gcp_subnet
 }
-
 
 module "gcp_bastion" {
   source       = "./modules/gcp_bastion"
@@ -88,9 +86,7 @@ module "gcp_gke" {
   region                 = var.gcp_region
   subnet_name            = module.gcp_vpc.subnet_names[0]
 }
-*/
 
-/*
 module "gcp_vpn" {
   source     = "./modules/gcp_vpn"
   gcp_asn    = var.gcp_asn
@@ -141,4 +137,3 @@ module "gcp_vpn_2" {
   router_name           = module.gcp_vpn.router_name
   vpn_gateway_id        = module.gcp_vpn.vpn_gateway_id
 }
-*/
