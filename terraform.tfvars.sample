@@ -1,0 +1,38 @@
+aws_asn            = 64512
+aws_eks_services   = "172.16.0.0/24"
+aws_key_name       = "REPLACE"
+aws_private_subnet = {
+  0 = {
+    availability_zone = "us-east-2a"
+    cidr_block        = "10.0.64.0/18"
+  },
+  1 = {
+    availability_zone = "us-east-2b"
+    cidr_block        = "10.0.128.0/18"
+  }
+}
+aws_public_subnet = {
+  0 = {
+    availability_zone = "us-east-2a"
+    cidr_block        = "10.0.0.0/24"
+  },
+  1 = {
+    availability_zone = "us-east-2b"
+    cidr_block        = "10.0.1.0/24"
+  }
+}
+aws_region         = "us-east-2"
+aws_vpc_cidr_block = "10.0.0.0/16"
+gcp_asn            = 64513
+gcp_project        = "REPLACE"
+gcp_region         = "us-central1"
+gcp_subnet = {
+  0 = {
+    ip_cidr_range          = "10.1.0.0/24"
+    ip_cidr_range_pods     = "10.1.64.0/18"
+    ip_cidr_range_services = "172.16.1.0/24"
+    region                 = "us-central1"
+  }
+}
+gcp_zone   = "us-central1-a"
+identifier = "hello-multi-cloud"
