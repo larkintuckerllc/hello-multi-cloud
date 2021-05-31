@@ -20,7 +20,6 @@ provider "google" {
   project = var.gcp_project
 }
 
-/*
 module "aws_vpc" {
   source         = "./modules/aws_vpc"
   private_subnet = var.aws_private_subnet
@@ -57,8 +56,7 @@ module "aws_eks" {
   vpc_id                    = module.aws_vpc.vpc_id
 }
 
-*/
-
+/*
 module "gcp_vpc" {
   source     = "./modules/gcp_vpc"
   identifier = var.identifier
@@ -90,6 +88,7 @@ module "gcp_gke" {
   region                 = var.gcp_region
   subnet_name            = module.gcp_vpc.subnet_names[0]
 }
+*/
 
 /*
 module "gcp_vpn" {
